@@ -4,6 +4,7 @@ console.log("hello world");
 let center = [48.698301, 2.177462];
 let gramophone = [48.69794, 2.18437];
 let cesfo = [48.69848, 2.16852];
+let gare = [48.69767, 2.18192];
 
 // initialize the map on the "map" div with a given center and zoom
 let map = L.map("map", {
@@ -19,6 +20,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 console.log("tileLayer created");
+
+L.control.scale().addTo(map);
 
 // Marker for the amphiteater
 const marker = L.marker(center).addTo(map);
@@ -37,6 +40,10 @@ console.log("cesfoMarker created");
 const gramophoneMarker = L.marker(gramophone).addTo(map);
 gramophoneMarker.bindPopup("Gramophone restaurant");
 console.log("gramophoneMarker created");
+
+const gareMarker = L.marker(gare).addTo(map);
+gareMarker.bindPopup("Gare RER Orsay Ville");
+console.log("gareMarker created");
 
 // Show the coordinates of the cursor
 let coordsDiv = document.getElementById("coords");
